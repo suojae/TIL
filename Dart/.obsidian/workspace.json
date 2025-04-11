@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "16c41b7e7c14ecc6",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "39761ef288ad9fe1",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "fa102375723557bf",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 315.5
   },
   "right": {
     "id": "012a0b986d2de2b7",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Dart/Dart SDK 컨트리뷰트 방법.md",
+                "file": "수오재 옵시디언 대문.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Dart SDK 컨트리뷰트 방법 의 백링크"
+              "title": "수오재 옵시디언 대문 의 백링크"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Dart/Dart SDK 컨트리뷰트 방법.md",
+                "file": "수오재 옵시디언 대문.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Dart SDK 컨트리뷰트 방법 의 나가는 링크"
+              "title": "수오재 옵시디언 대문 의 나가는 링크"
             }
           },
           {
@@ -142,20 +142,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dart/Dart SDK 컨트리뷰트 방법.md",
+                "file": "수오재 옵시디언 대문.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Dart SDK 컨트리뷰트 방법 의 개요"
+              "title": "수오재 옵시디언 대문 의 개요"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,18 +165,33 @@
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "homepage:Open homepage": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "fa102375723557bf",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "무제.canvas",
-    "2025-04-11.md",
+    "수오재 옵시디언 대문.md",
     "Dart/Dart SDK 컨트리뷰트 방법.md",
+    "ㄹㅂㄷㄹㄷㅂㄹ.md",
+    "ㅊㅈㄹㅂㅈㄹ.md",
+    "[2025] This Week I Learned.md",
+    "프롬프트",
+    "Dart/Dart SDK 컨트리뷰트 마인드맵.md",
+    "Excalidraw/Drawing 2025-04-11 13.27.56.excalidraw.md",
+    "Untitled mindmap 1.md",
+    "note template.md",
+    "Dart/add_file/Pasted image 20250411133357.png",
+    "Pasted image 20250411133032.png",
+    "Dart/add_file",
+    "Pasted image 20250411132931.png",
+    "Excalidraw",
+    "무제.canvas",
     "Swift",
     "Kotlin",
     "Flutter",
-    "무제.md",
     "Dart"
   ]
 }
