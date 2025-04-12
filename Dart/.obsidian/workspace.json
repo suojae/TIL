@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dart/Dart SDK 컨트리뷰트 방법.md",
+                "file": "Dart/4월 둘째주 트러블 슈팅.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dart SDK 컨트리뷰트 방법"
+              "title": "4월 둘째주 트러블 슈팅"
             }
           }
         ]
@@ -174,7 +174,9 @@
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "수오재 옵시디언 대문.md",
+    "Dart/4월 둘째주 트러블 슈팅.md",
     "Dart/Dart SDK 컨트리뷰트 방법.md",
+    "지도 기반 데이터 불러오기 Trouble Shooting.md",
     "ㄹㅂㄷㄹㄷㅂㄹ.md",
     "ㅊㅈㄹㅂㅈㄹ.md",
     "[2025] This Week I Learned.md",

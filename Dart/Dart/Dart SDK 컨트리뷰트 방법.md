@@ -129,4 +129,184 @@ PRESUBMIT --> CQ : 사전 검증 완료
 
 #### Dart SDK 실전 컨트리뷰트 순서
 
+Dart SDK는 일반적인 패키지 PR과 다르게, Google 내부 인프라 기반 도구들(depot_tools, gclient, gn, ninja)을 이용해야 한다. 복잡해 보이지만, 단계를 따라가면 충분히 기여할 수 있다.
 
+---
+
+ **1️⃣ 환경 설정**
+
+ **✅ 필수 도구 설치**
+
+- **Python 3**
+    
+- **Homebrew (macOS)** or apt (Linux)
+    
+- **Xcode** (macOS)
+    
+- **Visual Studio + Windows SDK** (Windows)
+
+ **✅ depot_tools 설치**
+
+```bash
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+export PATH="$PATH:$PWD/depot_tools"
+```
+
+> depot_tools는 `gclient`, `git cl`, `gn`, `ninja` 등을 포함한 Google 오픈소스 기여용 툴 모음이다.
+
+---
+
+**2️⃣ SDK 소스코드 가져오기**
+
+```bash
+mkdir dart-sdk
+cd dart-sdk
+fetch dart
+```
+
+> `git clone`이 아닌 `fetch dart`를 사용하는 이유는 `gclient`가 여러 하위 레포와 의존성을 함께 구성하기 때문.
+
+---
+
+**3️⃣ 브랜치 생성 및 개발 시작**
+
+```bash
+cd sdk
+git new-branch fix_my_issue
+```
+
+- 브랜치 만들고
+    
+- `sdk/` 내의 Dart 소스 코드 수정
+    
+- `git commit` 으로 변경사항 저장
+    
+
+---
+
+**4️⃣ Dart SDK 빌드**
+
+```bash
+./tools/build.py --mode release --arch x64 create_sdk
+```
+
+> macOS의 경우 결과물은 `xcodebuild/ReleaseX64/dart-sdk/`에 생성됨.  
+> Debug 모드가 필요하면 `--mode debug` 사용 가능.
+
+---
+
+**5️⃣ 변경사항 테스트**
+
+```bash
+./tools/test.py -mrelease -a x64 --runtime vm corelib
+```
+
+- 특정 테스트만 돌리고 싶다면 `corelib/SomeTest`로 지정 가능
+    
+- analyzer나 dart2js 테스트도 지원됨
+
+---
+
+**6️⃣ CL(Gerrit 리뷰) 업로드**
+
+```bash
+git cl upload --send-mail
+```
+
+- 자동으로 관련 OWNERS가 리뷰어로 추가됨
+- 리뷰는 [https://dart-review.googlesource.com](https://dart-review.googlesource.com/)에서 진행됨
+
+```bash
+git cl web
+```
+
+- 리뷰 CL 웹 UI 열기  
+
+---
+
+ **7️⃣ 리뷰 통과 후 자동 머지**
+
+- 리뷰어 2명의 **LGTM** + **자동 presubmit 테스트 통과** 시
+- Gerrit에서 “Submit to CQ” → **자동 머지**
+
+
+---
+#### 용량 정리 방법
+
+`create_sdk`를 한 번 돌리면 기본적으로:
+
+|폴더|용도|대략 용량|
+|---|---|---|
+|`xcodebuild/ReleaseX64/`|빌드 산출물 (.exe, .dill, .a 등)|1~3 GB|
+|`out/DebugX64/`, `out/ReleaseX64/`|디버그 빌드 결과|1~2 GB|
+|`.dart_tool/`, `.gclient`, `.git`|메타 정보, 캐시|수백 MB ~ 1GB|
+|`depot_tools/`|빌드 도구 모음|수백 MB|
+
+> 합치면 5~7GB 정도는 우습게 차지
+> 특히 **Debug 모드 빌드**를 여러 번 반복하면 디스크 압박이 생김
+
+---
+
+#### 🧹 용량 정리 방법
+
+**🔨 전체 SDK 삭제**
+
+```bash
+cd ~
+rm -rf dart-sdk
+```
+
+- `fetch dart`로 받은 소스 + 빌드결과 + 테스트 캐시까지 몽땅 날아감
+    
+- `depot_tools`도 같이 지우고 싶으면:
+    
+
+```bash
+rm -rf depot_tools
+```
+
+---
+
+**🧼 빌드 결과만 삭제하고 소스는 남기고 싶다면**
+
+```bash
+cd dart-sdk/sdk
+rm -rf out
+rm -rf xcodebuild
+```
+
+> 이렇게 하면 **다음 빌드할 때 다시 생성되긴 하지만**, 공간은 당장 확보.  
+> 테스트 결과 캐시까지 지우고 싶다면:
+
+```bash
+rm -rf .dart_tool
+```
+
+---
+
+**⚠️ 조심할 것**
+
+- `git cl`이나 `gclient`가 `.gclient`, `.git`, `.gclient_entries`를 사용하므로 → **절대 이것들은 막 지우지 마세요**  
+    (지우면 fetch부터 다시 해야 됨)
+    
+
+---
+
+**💡 실전 팁: 중간중간 cleanup 추천**
+
+```bash
+./tools/clean_output.py
+```
+
+> Dart SDK에서는 이 스크립트로 `out/`, `xcodebuild/`, `build/` 폴더를 자동 정리할 수 있음.
+
+---
+
+**✨ 요약**
+
+|질문|답변|
+|---|---|
+|용량 많이 먹음?|✅ 5~7GB 이상 충분히 차지함|
+|삭제 가능?|✅ 전부 또는 일부 폴더만 정리 가능|
+|조심할 것|`.gclient`, `.git`, `.gclient_entries`는 보존 필요|
+|자동 청소법?|`./tools/clean_output.py` 추천|
