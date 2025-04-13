@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "수오재 옵시디언 대문.md",
-                "mode": "preview",
+                "file": "지도 기반 데이터 불러오기 Trouble Shooting.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "수오재 옵시디언 대문"
+              "title": "지도 기반 데이터 불러오기 Trouble Shooting"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "SwiftLint 컨트리뷰션"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 315.5,
-    "collapsed": true
+    "width": 315.5
   },
   "right": {
     "id": "012a0b986d2de2b7",
@@ -124,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Flutter/네비게이션 결과 처리.md",
+                "file": "지도 기반 데이터 불러오기 Trouble Shooting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +132,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "네비게이션 결과 처리 의 백링크"
+              "title": "지도 기반 데이터 불러오기 Trouble Shooting 의 백링크"
             }
           },
           {
@@ -201,11 +199,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "318655aadf206556",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "수오재 옵시디언 대문.md",
-    "Flutter/네비게이션 결과 처리.md",
+    "[2025] This Week I Learned.md",
     "Swift/SwiftLint 컨트리뷰션.md",
+    "Flutter/네비게이션 결과 처리.md",
     "Swift/add_file/Pasted image 20250413173656.png",
     "Swift/add_file",
     "무제",
@@ -214,7 +213,6 @@
     "Dart/Dart SDK 컨트리뷰트 방법.md",
     "ㄹㅂㄷㄹㄷㅂㄹ.md",
     "ㅊㅈㄹㅂㅈㄹ.md",
-    "[2025] This Week I Learned.md",
     "프롬프트",
     "Dart/Dart SDK 컨트리뷰트 마인드맵.md",
     "Excalidraw/Drawing 2025-04-11 13.27.56.excalidraw.md",
