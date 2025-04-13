@@ -1,4 +1,10 @@
 {
   "promptDelete": false,
-  "attachmentFolderPath": "./add_file"
+  "attachmentFolderPath": "./add_file",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 53
+  }
 }
